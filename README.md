@@ -11,3 +11,5 @@ git add
 git commit
 ```
  [GitHub Pages](https://pages.github.com/)
+
+[메인이미지](https://github.com/hanberi/hanberi.github.io/img/_1.jpg)
