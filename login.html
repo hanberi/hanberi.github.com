@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>로그인</title>
+    <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <style>
+        /* div{outline: 1px solid red;}
+        div.container{outline: 1px solid white;} */
+        *{ box-sizing: border-box; }
+        .container{
+           display: flex;
+           justify-content: center;
+           margin-top:200px;
+        }
+        .login-wrapper{
+            width:340px;
+        }
+        .login-content input{
+            width: 100%;
+            border: 1px solid gray;
+            margin: 3px 0;
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+        .login-content > div{
+            margin: 2px 0;       
+        }
+        .login-content input[type="submit"]{
+            /* width: 100%; */
+            background-color:#FF6E6E;
+            color: white;
+        }
+        .login-title{
+            text-align: center;
+            font-family: 'Righteous', cursive;
+            
+            font-size: 40px;
+        }
+        #loginForm{
+            border-bottom: 1px solid grey;
+        }
+        #id, #pw, #loginBtn{
+            padding: 5px;
+            height: 40px;
+            /* border-radius: 5px; */
+        }
+         /*비밀번호 찾기*/
+         .find_info{
+            margin-top: 20px;
+            font-size: 0.6rem;
+            color: grey;
+            text-align: center;
+        }
+        .find_info > a{
+            text-decoration: none;
+            color: grey;
+        }
+        .find_info > a:hover{
+            text-decoration: underline;
+        }
+    </style>
+
+    <script>
+        window.addEventListener("load",init,false);
+        function init(){
+            var idTag = document.getElementById("id");
+            var pwTag = document.getElementById("pw");
+
+            window.document.getElementById("loginBtn");
+            console.log(loginBtn);
+            loginBtn.addEventListener("click",function(e){
+                e.preventDefault();
+                checkLogin();
+            },false);
+        }
+        function checkLogin(){
+         var idTag = document.getElementById("id");
+         var idValue = idTag.value;
+         var pwTag = document.getElementById("pw");
+         var pwValue = pwTag.value;
+
+         const ID = 'admin@google.com';
+         const PW = 'admin1234';
+
+         //로그인 유효성 체크
+         //1) 아이디, 비밀번호 빈문자열 체크
+         if(idValue.trim().length == 0){
+            //  var idMsg = document.getElementById("idMsg");
+             idMsg.innerHTML="아이디를 입력하세요";
+             idMsg.style.color = "red";
+             idMsg.style.fontSize = '0.8rem';
+             idMsg.style.fontWeight = 'bold';
+             idTag.focus();
+             return;
+         }
+         if(pwValue.trim().length == 0){
+             idMsg.innerHTML="";
+             pwMsg.innerHTML="비밀번호를 입력하세요";
+             pwMsg.style.color = "red";
+             pwMsg.style.fontSize = '0.8rem';
+             pwMsg.style.fontWeight = 'bold';
+             pwTag.focus();
+             return;
+        }
+        console.log(idValue.trim(),pwValue.trim());
+        //2) 회원 존재 유무 체크
+        if(idValue.trim() == ID && pwValue.trim() == PW){
+            //메인페이지로 이동
+            window.location.href = "http://127.0.0.1:5500/book/lee/exercise/main_after.html";
+        }else{
+            pwMsg.innerHTML = "가입하지 않은 아이디이거나, 잘못된 비밀번호 입니다.";
+            pwMsg.style.color = "red";
+            pwMsg.style.fontSize = '0.8rem';
+            pwMsg.style.fontWeight = 'bold';
+            pwTag.focus();
+            return;
+        }
+        }
+    </script>
+</head>
+<!--div>input:text -->
+<body>
+    <div class="container">
+        <div class="login-wrapper">
+            <form>
+                <div> <h3 class="login-title"><img src="img/pink.png" alt="" width="50px"> IN HOUSE</h3></div>
+                <div class="login-content">
+                    <div><input type="text" name="" id="id" value="" placeholder="아이디"></div>
+                    <div><span id="idMsg"></span></div>
+                    <div><input type="password" name="" id="pw" placeholder="비밀번호"></div>
+                    <div><span id="pwMsg"></span></div>
+                    <div><input type="submit" name="" id="loginBtn" value="로 그 인"></div>
+                </div>
+            </form>
+            <div class="find_info">
+                <a href="">아이디 찾기</a>
+                <span>|</span>
+                <a href="">비밀번호 찾기</a>
+                <span>|</span>
+                <a href="">회원가입</a>
+            </div>
+</body>
+</html>
