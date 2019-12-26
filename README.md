@@ -5,3 +5,8 @@
 ## hanberi.github.com
 >안녕
 ### hanberi.github.com
+```
+git status
+git add
+git commit
+```
