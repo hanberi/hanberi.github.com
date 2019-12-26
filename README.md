@@ -13,3 +13,6 @@ git commit
  [GitHub Pages](https://pages.github.com/)
 
 [메인이미지](./img/_1.jpg)
+- George Washington
+- John Adams
+- Thomas Jefferson
